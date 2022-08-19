@@ -1,20 +1,13 @@
 const express = require('express');
 const router = express.Router();
+const HomeController = require('../controllers/HomeController')
+
+const homeController = new HomeController()
 
 // Halaman Home
-router.get('/', (req, res) => {
-    res.render('home', {
-        layout: 'layouts/main',
-        title: 'Halaman Home'
-    });
-});
+router.get('/', homeController.index)
 
-// Halaman About
-router.get('/about', (req, res) => {
-    res.render('about', {
-        layout: 'layouts/main',
-        title: 'Halaman About'
-    });
-});
+// // Halaman About
+router.get('/about', homeController.about)
 
 module.exports = router;
