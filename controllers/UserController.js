@@ -1,8 +1,6 @@
-const { body, validationResult, check } = require('express-validator');
-
 // User Model
 const User = require('../models/User');
-
+const { validationResult } = require('express-validator');
 class UserController{
 
     index = async (req, res) => {
@@ -26,7 +24,7 @@ class UserController{
     }
 
     addProcess = (req, res) => {
-        
+
         // Konstanta errors
         const errors = validationResult(req);
     
