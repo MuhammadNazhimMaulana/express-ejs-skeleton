@@ -3,7 +3,7 @@
 
         <!-- Button Add Contact -->
         <a href="/user/add" class="btn btn-primary mb-2">Tambah Data Pengguna</a>
-        
+
         <!-- Catching Flash -->
         <% if (msg.length !== 0) { %>
 
@@ -41,7 +41,8 @@
                         <td><%= user.username %></td>
                         <td><%= user.phone %></td>
                         <td>
-                            <a href="/user/<%= user._id %>" class="btn btn-success badge rounded-pill"><i class="bi bi-info-circle"></i> Detail</a>
+                            <a href="/user/edit/<%= user._id %>" class="btn btn-success badge rounded-pill"><i class="bi bi-info-circle"></i> Update</a>
+                            <!-- <a href="/user/<%= user._id %>" class="btn btn-success badge rounded-pill"><i class="bi bi-info-circle"></i> Detail</a> -->
                         </td>
                     </tr>
                 <% }) %>

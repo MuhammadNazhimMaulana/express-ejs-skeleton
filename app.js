@@ -11,6 +11,9 @@ require('./utils/db');
 const app = express();
 const port = process.env.PORT;
 
+// Set up method override
+app.use(methodOverride('_method'));
+
 // Setup ejs
 app.set('view engine', 'ejs');
 

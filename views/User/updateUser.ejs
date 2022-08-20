@@ -1,0 +1,46 @@
+<div class="container mt-3">
+    <div class="row">
+        <div class="col-md-6">
+            <h2>Form Ubah Data Pengguna</h2>
+
+            <!-- Catching Error -->
+            <% if (typeof errors != 'undefined') { %>
+
+                <!-- Getting Message -->
+                <div class="alert alert-danger" role="alert">
+                    <ul>
+                        
+                        <!-- Foreach errors -->
+                        <% errors.forEach(error => { %>
+                            <li><%= error.msg %> </li>
+                        <% }) %>
+
+                    </ul>
+                </div>
+            <% } %>
+
+            <!-- Form Tambah Pengguna -->
+            <form method="post" action="/user?_method=PUT">
+                <!-- Hidden inputs -->
+                <input type="hidden" name="oldUserName" value="<%= user.oldUserName || user.username %>">
+                <input type="hidden" name="_id" value="<%= user._id %>">
+
+                <!-- Inputs -->
+                <div class="mb-3">
+                  <label for="username" class="form-label">Username</label>
+                  <input type="text" class="form-control" id="username" name="username" required value="<%= user.username %>">
+                </div>
+                <div class="mb-3">
+                  <label for="email" class="form-label">Email</label>
+                  <input type="email" class="form-control" id="email" name="email" required value="<%= user.email %>">
+                </div>
+                <div class="mb-3">
+                  <label for="phone" class="form-label">Nomor HP</label>
+                  <input type="text" class="form-control" id="phone" name="phone" required value="<%= user.phone %>">
+                </div>
+                <button type="submit" class="btn btn-primary">Ubah Data Pengguna</button>
+            </form>
+
+        </div>
+    </div>
+</div>

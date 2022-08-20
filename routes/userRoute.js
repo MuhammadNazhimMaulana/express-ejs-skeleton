@@ -13,4 +13,8 @@ router.get('/', userController.index)
 router.get('/add', userController.add)
 router.post('/add', userValidationRules(), validate, userController.addProcess)
 
+// Halaman Ubah Pengguna
+router.get('/edit/:_id', userController.update)
+router.put('/', userValidationRules(), validate, userController.updateProcess)
+
 module.exports = router;

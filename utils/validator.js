@@ -10,17 +10,29 @@ const userValidationRules = () => {
     check('phone', 'No HP Tidak Valid').isMobilePhone('id-ID'),
 
     // Custom Validation
-    body('username').custom(async (value) => {
+    body('username').custom(async (value, { req }) => {
 
         // Cek Duplikatnya
         const duplicate = await User.findOne({ username: value });
 
-        // Kalau Ada yang duplikat
-        if(duplicate){
-            throw new Error('Nama Kontak Sudah ada');
+        // Checking old username
+        if(req.body.oldUserName)
+        {
+            // If duplicate exist and username is changed
+            if(value != req.body.oldUserName && duplicate){
+                throw new Error('Username Sudah ada')
+            }
+
+        }else{
+
+            // If there is a duplicate
+            if(duplicate){
+                throw new Error('Username Sudah ada')
+            }            
         }
 
         return true;
+
     })
   ]
 }
