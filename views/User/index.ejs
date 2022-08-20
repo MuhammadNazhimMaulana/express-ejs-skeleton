@@ -1,0 +1,51 @@
+<div class="container mt-5">
+    <h4>Daftar Pengguna</h4>
+
+        <!-- Button Add Contact -->
+        <a href="/user/add" class="btn btn-primary mb-2">Tambah Data Pengguna</a>
+        
+        <!-- Catching Flash -->
+        <% if (msg.length !== 0) { %>
+
+            <!-- Getting Message -->
+            <div class="alert alert-success" role="alert">
+                <%= msg %> 
+            </div>
+        <% } %>
+
+        <table class="table table-stripped">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Username</th>
+                <th scope="col">Nomor HP</th>
+                <th scope="col">Aksi</th>
+              </tr>
+            </thead>
+            <tbody>
+                <!-- Condition if empty -->
+                <% if (users.length === 0) { %>
+                    <tr>
+                        <td colspan="4">
+                            <div class="alert alert-danger fw-bold" role="alert">
+                                Data Kontak Masih Kosong
+                            </div>
+                        </td>
+                    </tr>
+                <% } %>
+                <% let no = 1; %> 
+                <!-- Looping -->
+                <% users.forEach((user, index) => { index++ %>  
+                    <tr>
+                        <th scope="row"><%= index++ %></th>
+                        <td><%= user.username %></td>
+                        <td><%= user.phone %></td>
+                        <td>
+                            <a href="/user/<%= user._id %>" class="btn btn-success badge rounded-pill"><i class="bi bi-info-circle"></i> Detail</a>
+                        </td>
+                    </tr>
+                <% }) %>
+    
+            </tbody>
+        </table>
+</div>
