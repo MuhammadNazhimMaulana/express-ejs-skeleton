@@ -1,7 +1,7 @@
 <div class="container mt-5">
     <h4>Daftar Pengguna</h4>
 
-        <!-- Button Add Contact -->
+        <!-- Button Add User -->
         <a href="/user/add" class="btn btn-primary mb-2">Tambah Data Pengguna</a>
 
         <!-- Catching Flash -->
@@ -41,7 +41,14 @@
                         <td><%= user.username %></td>
                         <td><%= user.phone %></td>
                         <td>
-                            <a href="/user/edit/<%= user._id %>" class="btn btn-success badge rounded-pill"><i class="bi bi-info-circle"></i> Update</a>
+                            <!-- Update -->
+                            <a href="/user/edit/<%= user._id %>" class="btn btn-success badge rounded-pill">Update</a>
+                            
+                            <!-- Delete -->
+                            <form action="/user?_method=DELETE" method="POST" class="d-inline">
+                                <input type="hidden" name="_id" value="<%= user._id %>">
+                                <button type="submit" class="btn btn-danger badge rounded-pill" onclick="return confirm('Apakah Anda yakin?')">Hapus</button>
+                            </form>
                             <!-- <a href="/user/<%= user._id %>" class="btn btn-success badge rounded-pill"><i class="bi bi-info-circle"></i> Detail</a> -->
                         </td>
                     </tr>

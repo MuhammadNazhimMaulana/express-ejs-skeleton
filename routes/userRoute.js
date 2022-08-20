@@ -17,4 +17,7 @@ router.post('/add', userValidationRules(), validate, userController.addProcess)
 router.get('/edit/:_id', userController.update)
 router.put('/', userValidationRules(), validate, userController.updateProcess)
 
+// Hapus Pengguna
+router.delete('/', userController.delete)
+
 module.exports = router;

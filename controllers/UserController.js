@@ -103,6 +103,19 @@ class UserController{
         }        
     }
 
+    // Delete
+    delete = async (req, res) => {
+
+        User.deleteOne({ _id: req.body._id}).then((result) => {
+            
+            // Sending flash Message
+            req.flash('msg', 'User Berhasil Dihapus');
+    
+            // Redirect
+            res.redirect('/user');
+        });
+    }   
+
 }
 
 module.exports = UserController
