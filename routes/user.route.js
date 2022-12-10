@@ -2,7 +2,7 @@
 const express = require('express');
 const { userValidationRules, validate } = require('../utils/validator')
 const router = express.Router();
-const UserController = require('../controllers/UserController')
+const UserController = require('../controllers/user.controller')
 
 const userController = new UserController()
 

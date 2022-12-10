@@ -1,5 +1,5 @@
 // User Model
-const User = require('../models/User');
+const User = require('../models/user.model');
 const { validationResult } = require('express-validator');
 class UserController{
 

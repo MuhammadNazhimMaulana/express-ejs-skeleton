@@ -42,7 +42,7 @@ app.use(flash());
 
 // Seperate Route
 const route = require('./routes/route');
-const userRoute = require('./routes/userRoute');
+const userRoute = require('./routes/user.route');
 app.use('/', route);
 app.use('/user', userRoute);
 
