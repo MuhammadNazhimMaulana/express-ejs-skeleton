@@ -1,0 +1,13 @@
+name: CI/CD
+run-name: ${{ github.actor }} Push Update
+
+on:
+  push:
+    branches:
+      - "master"
+  workflow_call:
+
+jobs:
+  ci:
+    uses: ./.github/workflows/node.yml
+    secrets: inherit
