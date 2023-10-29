@@ -49,3 +49,6 @@ app.use('/user', userRoute);
 app.listen(port, () => {
     console.log(`Jalan di http://localhost:${port}`);
 });
+
+// Export the Express API
+module.exports = app;
